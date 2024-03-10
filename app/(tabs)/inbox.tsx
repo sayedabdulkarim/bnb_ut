@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const Wishlists = () => {
+const Inbox = () => {
   return (
     <View>
-      <Text>Wishlists</Text>
+      <Text>Inbox</Text>
     </View>
   );
 };
 
-export default Wishlists;
+export default Inbox;
 
 const styles = StyleSheet.create({});
