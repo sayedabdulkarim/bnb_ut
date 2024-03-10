@@ -10,6 +10,9 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
+// find icons
+// https://icons.expo.fyi/Index
+
 import { useColorScheme } from "react-native";
 
 export {
