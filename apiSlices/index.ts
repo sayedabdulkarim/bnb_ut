@@ -1,20 +1,24 @@
-import { RootState } from '@/store';
-import { createApi, fetchBaseQuery, BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
+import { RootState } from "@/store";
+import {
+  createApi,
+  fetchBaseQuery,
+  BaseQueryFn,
+  FetchArgs,
+  FetchBaseQueryError,
+} from "@reduxjs/toolkit/query/react";
 
-// Defining the type for the arguments of 'baseQueryWithReauth'
-const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (
-  args,
-  api,
-  extraOptions
-) => {
+const baseQueryWithReauth: BaseQueryFn<
+  string | FetchArgs,
+  unknown,
+  FetchBaseQueryError
+> = async (args, api, extraOptions) => {
   const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://192.168.225.131:5000/',
-    credentials: 'include',
+    baseUrl: "https://jsonplaceholder.typicode.com",
+    credentials: "include",
     prepareHeaders: async (headers, { getState }) => {
-      // Potentially add auth tokens here with TypeScript typing for 'getState'
-      const token = (getState() as RootState).authReducer.token; // Example for getting token from state
+      const token = (getState() as RootState).authReducer.token;
       if (token) {
-        headers.set('authorization', `Bearer ${token}`);
+        headers.set("authorization", `Bearer ${token}`);
       }
       return headers;
     },
@@ -22,10 +26,9 @@ const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
 
   let result = await baseQuery(args, api, extraOptions);
 
-  // Checking for a 401 error specifically and handling it
-  if (result.error && 'status' in result.error && result.error.status === 401) {
-    // Perform logout operations
-    // Example: dispatch some logout action
+  // Checking for a 401 error
+  if (result.error && "status" in result.error && result.error.status === 401) {
+    // logout operations
     // api.dispatch(logout());
   }
 
@@ -34,13 +37,6 @@ const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
 
 export const apiSlice = createApi({
   baseQuery: baseQueryWithReauth,
-  tagTypes: ['User'],
+  tagTypes: ["User"],
   endpoints: (builder) => ({}),
 });
-
-// Assuming 'logout' is an action creator
-// function logout() {
-//   return { type: 'auth/logout' };
-// }
-
-// Make sure to define the 'RootState' and 'FetchArgs', 'FetchBaseQueryError' if not already defined
