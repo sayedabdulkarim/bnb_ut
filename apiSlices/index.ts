@@ -14,7 +14,7 @@ const baseQueryWithReauth: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   const baseQuery = fetchBaseQuery({
     baseUrl: "https://jsonplaceholder.typicode.com",
-    credentials: "include",
+    // credentials: "include",
     prepareHeaders: async (headers, { getState }) => {
       const token = (getState() as RootState).authReducer.token;
       if (token) {
