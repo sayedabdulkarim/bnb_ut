@@ -11,7 +11,7 @@ const Trips = () => {
   );
 
   //queries n mutation
-  const { data: posts, error, isLoading } = useGetAllPostsQuery(null);
+  const { data: posts, error, isLoading } = useGetAllPostsQuery();
 
   //async
   useEffect(() => {
@@ -31,6 +31,7 @@ const Trips = () => {
             userInfo,
             isAuthenticated,
             name,
+            posts,
           })
         }
       >
