@@ -1,12 +1,27 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { useGetAllPostsQuery } from "@/apiSlices/postApiSlice";
 
 const Trips = () => {
+  //misc
   const { userInfo, isAuthenticated, name } = useSelector(
     (state: RootState) => state.authReducer
   );
+
+  //queries n mutation
+  const { data: posts, error, isLoading } = useGetAllPostsQuery(null);
+
+  //async
+  useEffect(() => {
+    if (posts) {
+      console.log(posts);
+    }
+  }, [posts]);
+
+  if (isLoading) return <Text>Loading...</Text>;
+  if (error) return <Text>Error occurred</Text>;
 
   return (
     <View>
