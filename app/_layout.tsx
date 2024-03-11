@@ -72,6 +72,28 @@ function RootLayoutNav() {
           ),
         }}
       />
+      <Stack.Screen
+        name="listing/[id]"
+        options={{
+          headerTitle: "",
+        }}
+      />
+      <Stack.Screen
+        name="(modals)/booking"
+        options={{
+          title: "Booking",
+          presentation: "transparentModal",
+          animation: "fade",
+          headerTitleStyle: {
+            fontFamily: "mon-sb",
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <Ionicons name="close-outline" size={28} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </Stack>
   );
 }
