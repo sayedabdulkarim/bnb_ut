@@ -1,10 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
-import store from "@/store";
+import store, { RootState } from "@/store";
 import { useFonts } from "expo-font";
 import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // find icons
 // https://icons.expo.fyi/Index
@@ -52,6 +53,15 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
   const router = useRouter();
+  //misc
+  const { userInfo, isAuthenticated, name, token } = useSelector(
+    (state: RootState) => state.authReducer
+  );
+
+  useEffect(() => {
+    if (!token) router.push("/(modals)/login");
+    else router.push("/(tabs)");
+  }, [token]);
 
   return (
     <Stack>
