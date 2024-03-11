@@ -2,14 +2,15 @@ import React from "react";
 import { Provider } from "react-redux";
 import store from "@/store";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
 // find icons
 // https://icons.expo.fyi/Index
 
-import { useColorScheme } from "react-native";
+import { TouchableOpacity, useColorScheme } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -50,6 +51,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const router = useRouter();
 
   return (
     <Stack>
@@ -60,6 +62,14 @@ function RootLayoutNav() {
           title: "Login / Signup",
           presentation: "modal",
           headerShown: true,
+          headerTitleStyle: {
+            fontFamily: "mon-sb",
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <Ionicons name="close-outline" size={28} />
+            </TouchableOpacity>
+          ),
         }}
       />
     </Stack>
