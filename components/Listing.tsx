@@ -48,7 +48,7 @@ const Listings = ({ listings: items, refresh, category }: ListingsProps) => {
     <Link
       href={`/listing/${item.id}`}
       asChild
-      onPress={() => console.log({ item })}
+      // onPress={() => console.log({ item })}
     >
       <TouchableOpacity>
         <Animated.View

@@ -3,7 +3,7 @@ import React, { useMemo, useState } from "react";
 import { Link, Stack } from "expo-router";
 
 import listingsData from "@/assets/data/listing.json";
-import listingsDataGeo from "@/assets/data/listing_geo.json";
+import listingsDataGeo from "@/assets/data/listingGeo.json";
 import ExploreHeader from "@/components/ExploreHeader";
 import Listings from "@/components/Listing";
 
