@@ -67,7 +67,7 @@ const ExploreHeader = ({ onCategoryChanged }: ExploreHeaderProps) => {
       <StatusBar backgroundColor="#bebebe" />
       <SafeAreaView
         style={{
-          flex: 1,
+          // flex: 1,
           backgroundColor: "#fff",
           paddingTop: 40,
         }}
