@@ -187,12 +187,12 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   categoryText: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "mon-sb",
     color: Colors.grey,
   },
   categoryTextActive: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "mon-sb",
     color: "#000",
   },
