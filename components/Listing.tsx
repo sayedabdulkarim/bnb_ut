@@ -68,7 +68,11 @@ const Listings = ({ listings: items, refresh, category }: ListingsProps) => {
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <Text style={{ fontSize: 12, fontFamily: "mon-sb" }}>
+            <Text
+              style={{ fontSize: 14, fontFamily: "mon-sb", maxWidth: 250 }}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
               {item.name}
             </Text>
             <View style={{ flexDirection: "row", gap: 4 }}>
