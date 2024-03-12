@@ -9,4 +9,10 @@ type ExploreHeaderProps = {
   onCategoryChanged: (category: string) => void;
 };
 
-export { Post, ExploreHeaderProps };
+type ListingsProps = {
+  listings: any[];
+  refresh: number;
+  category: string;
+};
+
+export { Post, ExploreHeaderProps, ListingsProps };
