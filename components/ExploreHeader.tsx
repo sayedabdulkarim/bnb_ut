@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import Colors from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-// import * as Haptics from 'expo-haptics';
+import * as Haptics from "expo-haptics";
 import { Link } from "expo-router";
 import { ExploreHeaderProps } from "@/constants/models";
 import { StatusBar } from "expo-status-bar";
@@ -58,7 +58,7 @@ const ExploreHeader = ({ onCategoryChanged }: ExploreHeaderProps) => {
     selected?.measure((x) => {
       scrollRef.current?.scrollTo({ x: x - 16, y: 0, animated: true });
     });
-    // Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     onCategoryChanged(categories[index].name);
   };
 
