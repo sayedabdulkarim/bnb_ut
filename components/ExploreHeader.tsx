@@ -66,7 +66,11 @@ const ExploreHeader = ({ onCategoryChanged }: ExploreHeaderProps) => {
     <>
       <StatusBar backgroundColor="#bebebe" />
       <SafeAreaView
-        style={{ flex: 1, backgroundColor: "#fff", paddingTop: 40 }}
+        style={{
+          flex: 1,
+          backgroundColor: "#fff",
+          paddingTop: 40,
+        }}
       >
         <View style={styles.container}>
           <View style={styles.actionRow}>
@@ -144,13 +148,17 @@ const styles = StyleSheet.create({
       width: 1,
       height: 10,
     },
+    // borderWidth: 2,
+    // borderColor: "red",
   },
   actionRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 24,
+    paddingHorizontal: 4,
     paddingBottom: 16,
+    // borderWidth: 1,
+    // borderColor: "green",
   },
 
   searchBtn: {
