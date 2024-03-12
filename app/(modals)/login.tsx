@@ -7,7 +7,7 @@ import {
   Button,
 } from "react-native";
 import React from "react";
-import { useDispatch } from "react-redux"; // Import useDispatch
+import { useDispatch } from "react-redux";
 import { setAuthenticated } from "@/slices/authSlice";
 import Colors from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,10 +17,10 @@ import { defaultStyles } from "@/constants/Styles";
 const Login = () => {
   //misc
   const router = useRouter();
-  const dispatch = useDispatch(); // Get the dispatch function
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
-    dispatch(setAuthenticated(true)); // Dispatch the logOutUser action
+    dispatch(setAuthenticated(true));
   };
 
   return (
