@@ -5,4 +5,8 @@ type Post = {
   body: string;
 };
 
-export { Post };
+type ExploreHeaderProps = {
+  onCategoryChanged: (category: string) => void;
+};
+
+export { Post, ExploreHeaderProps };
