@@ -22,15 +22,13 @@ const Page = () => {
   };
 
   return (
-    <View
-      style={{ flex: 1, marginTop: 0, borderWidth: 1, borderColor: "green" }}
-    >
+    <View style={{ flex: 1, marginTop: 0 }}>
       <Stack.Screen
         options={{
           header: () => <ExploreHeader onCategoryChanged={onDataChanged} />,
         }}
       />
-      <Listings listings={[]} refresh={0} category={category} />
+      <Listings listings={items} refresh={0} category={category} />
       {/* <Link href={"/(modals)/login"}>Login</Link>
       <Link href={"/(modals)/booking"}>Booking</Link>
       <Link href={"/listing/13334"}>Listing</Link>
