@@ -44,9 +44,12 @@ const Listings = ({ listings: items, refresh, category }: ListingsProps) => {
     }
   }, [refresh]);
 
-  // Render one listing row for the FlatList
   const renderRow: ListRenderItem<any> = ({ item }) => (
-    <Link href={`/listing/${item.id}`} asChild>
+    <Link
+      href={`/listing/${item.id}`}
+      asChild
+      onPress={() => console.log({ item })}
+    >
       <TouchableOpacity>
         <Animated.View
           style={styles.listing}
