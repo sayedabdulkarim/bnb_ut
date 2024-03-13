@@ -212,23 +212,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   name: {
-    fontSize: 26,
+    fontSize: 20,
     fontWeight: "bold",
     fontFamily: "mon-sb",
   },
   location: {
-    fontSize: 18,
+    fontSize: 14,
     marginTop: 10,
     fontFamily: "mon-sb",
   },
   rooms: {
-    fontSize: 16,
+    fontSize: 12,
     color: Colors.grey,
     marginVertical: 4,
     fontFamily: "mon-r",
   },
   ratings: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: "mon-sb",
   },
   divider: {
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    fontSize: 16,
+    fontSize: 14,
     marginTop: 10,
     fontFamily: "mon-r",
   },
