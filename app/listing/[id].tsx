@@ -37,11 +37,15 @@ const DetailsPage = () => {
 
   const shareListing = async () => {
     try {
-      console.log({ listing });
-      await Share.share({
+      // const result = {
+      //   title: listing?.properties.name,
+      //   url: listing?.properties.listing_url,
+      // };
+      const result = await Share.share({
         title: listing?.properties.name,
         url: listing?.properties.listing_url,
       });
+      console.log({ result });
     } catch (err) {
       console.log(err);
     }
