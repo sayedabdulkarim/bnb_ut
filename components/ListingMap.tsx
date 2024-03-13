@@ -23,17 +23,14 @@ const ListingsMap = memo(({ listings }: Props) => {
   const router = useRouter();
   const mapRef = useRef<any>(null);
 
-  // When the component mounts, locate the user
   useEffect(() => {
     onLocateMe();
   }, []);
 
-  // When a marker is selected, navigate to the listing page
   const onMarkerSelected = (event: any) => {
     router.push(`/listing/${event.properties.id}`);
   };
 
-  // Focus the map on the user's location
   const onLocateMe = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -53,7 +50,6 @@ const ListingsMap = memo(({ listings }: Props) => {
     mapRef.current?.animateToRegion(region);
   };
 
-  // Overwrite the renderCluster function to customize the cluster markers
   const renderCluster = (cluster: any) => {
     const { id, geometry, onPress, properties } = cluster;
 
@@ -94,21 +90,30 @@ const ListingsMap = memo(({ listings }: Props) => {
         clusterFontFamily="mon-sb"
         renderCluster={renderCluster}
       >
-        {/* Render all our marker as usual */}
-        {listings.features.map((item: any) => (
-          <Marker
-            coordinate={{
-              latitude: item.properties.latitude,
-              longitude: item.properties.longitude,
-            }}
-            key={item.properties.id}
-            onPress={() => onMarkerSelected(item)}
-          >
-            <View style={styles.marker}>
-              <Text style={styles.markerText}>€ {item.properties.price}</Text>
-            </View>
-          </Marker>
-        ))}
+        {listings.features.map((item: any) => {
+          const latitude = parseFloat(item?.properties?.latitude);
+          const longitude = parseFloat(item?.properties?.longitude);
+
+          if (!isNaN(latitude) && !isNaN(longitude)) {
+            return (
+              <Marker
+                coordinate={{
+                  latitude,
+                  longitude,
+                }}
+                key={item.properties.id}
+                onPress={() => onMarkerSelected(item)}
+              >
+                <View style={styles.marker}>
+                  <Text style={styles.markerText}>
+                    € {item.properties.price}
+                  </Text>
+                </View>
+              </Marker>
+            );
+          }
+          return null;
+        })}
       </MapView>
       <TouchableOpacity style={styles.locateBtn} onPress={onLocateMe}>
         <Ionicons name="navigate" size={24} color={Colors.dark} />

@@ -20,13 +20,18 @@ import Animated, {
   useScrollViewOffset,
 } from "react-native-reanimated";
 import { defaultStyles } from "@/constants/Styles";
+import { ListingsData } from "@/constants/models";
 
 const { width } = Dimensions.get("window");
 const IMG_HEIGHT = 300;
 
 const DetailsPage = () => {
   const { id } = useLocalSearchParams();
-  const listingObj = (listingsData?.features as any[]).find(
+  // const listingObj = (listingsData?.features as any[]).find(
+  //   (item) => item.properties.id === id
+  // );
+
+  const listingObj = (listingsData as ListingsData).features.find(
     (item) => item.properties.id === id
   );
 
@@ -43,7 +48,7 @@ const DetailsPage = () => {
       // };
       const result = await Share.share({
         title: listing?.properties.name,
-        url: listing?.properties.listing_url,
+        url: listing?.properties?.listing_url ?? "",
       });
       console.log({ result });
     } catch (err) {
@@ -143,7 +148,7 @@ const DetailsPage = () => {
           <View style={{ flexDirection: "row", gap: 4 }}>
             <Ionicons name="star" size={16} />
             <Text style={styles.ratings}>
-              {listing?.properties.review_scores_rating / 20} ·{" "}
+              {listing?.properties.review_scores_rating ?? 100 / 20} ·{" "}
               {listing?.properties.number_of_reviews} reviews
             </Text>
           </View>
