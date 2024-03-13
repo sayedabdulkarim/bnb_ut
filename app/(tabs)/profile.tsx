@@ -26,9 +26,9 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const user = {
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
+    firstName: "Sayed Abdul",
+    lastName: "Karim",
+    emailAddress: "sakarim9124@gmail.com",
     setProfileImage: "",
     profileImage: "",
     createdAt: new Date(),
