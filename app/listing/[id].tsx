@@ -132,12 +132,13 @@ const DetailsPage = () => {
             {listing?.properties.name}
           </Text>
           <Text style={styles.location}>
-            {listing.room_type} in {listing?.properties.smart_location}
+            {listing?.properties.room_type} in{" "}
+            {listing?.properties.smart_location}
           </Text>
           <Text style={styles.rooms}>
-            {listing.guests_included} guests · {listing?.properties.bedrooms}{" "}
-            bedrooms · {listing.beds} bed · {listing?.properties.bathrooms}{" "}
-            bathrooms
+            {listing?.properties.guests_included} guests ·{" "}
+            {listing?.properties.bedrooms} bedrooms · {listing?.properties.beds}{" "}
+            bed · {listing?.properties.bathrooms} bathrooms
           </Text>
           <View style={{ flexDirection: "row", gap: 4 }}>
             <Ionicons name="star" size={16} />
