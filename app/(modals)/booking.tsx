@@ -68,7 +68,11 @@ const Page = () => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <BlurView intensity={70} style={styles.container} tint="light">
+      <BlurView
+        intensity={100}
+        style={styles.container}
+        tint="systemUltraThinMaterialLight"
+      >
         {/*  Where */}
         <View style={styles.card}>
           {openCard != 0 && (
@@ -317,6 +321,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 100,
+    // backgroundColor: "transparent",
+    // opacity: 1,
   },
   card: {
     backgroundColor: "#fff",

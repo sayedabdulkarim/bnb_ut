@@ -97,10 +97,17 @@ function RootLayoutNav() {
           headerTransparent: true,
           headerTitleStyle: {
             fontFamily: "mon-sb",
+            color: "#000",
+            fontWeight: "bold",
           },
           headerLeft: () => (
             <TouchableOpacity onPress={() => router.back()}>
-              <Ionicons name="close-outline" size={28} />
+              <Ionicons
+                name="close-outline"
+                size={28}
+                color={"#000"}
+                style={{ fontWeight: "bold" }}
+              />
             </TouchableOpacity>
           ),
         }}
