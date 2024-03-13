@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import * as Location from "expo-location";
 import ListingsBottomSheet from "./ListingBottomSheets";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 interface Props {
   listings: any;
@@ -82,48 +83,50 @@ const ListingsMap = memo(({ listings, itemListing, category }: Props) => {
   };
 
   return (
-    <View style={defaultStyles.container}>
-      <MapView
-        ref={mapRef}
-        animationEnabled={false}
-        style={StyleSheet.absoluteFillObject}
-        initialRegion={INITIAL_REGION}
-        clusterColor="#fff"
-        clusterTextColor="#000"
-        clusterFontFamily="mon-sb"
-        renderCluster={renderCluster}
-      >
-        {listings.features.map((item: any) => {
-          const latitude = parseFloat(item?.properties?.latitude);
-          const longitude = parseFloat(item?.properties?.longitude);
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={defaultStyles.container}>
+        <MapView
+          ref={mapRef}
+          animationEnabled={false}
+          style={StyleSheet.absoluteFillObject}
+          initialRegion={INITIAL_REGION}
+          clusterColor="#fff"
+          clusterTextColor="#000"
+          clusterFontFamily="mon-sb"
+          renderCluster={renderCluster}
+        >
+          {listings.features.map((item: any) => {
+            const latitude = parseFloat(item?.properties?.latitude);
+            const longitude = parseFloat(item?.properties?.longitude);
 
-          if (!isNaN(latitude) && !isNaN(longitude)) {
-            return (
-              <Marker
-                coordinate={{
-                  latitude,
-                  longitude,
-                }}
-                key={item.properties.id}
-                onPress={() => onMarkerSelected(item)}
-              >
-                <View style={styles.marker}>
-                  <Text style={styles.markerText}>
-                    € {item.properties.price}
-                  </Text>
-                </View>
-              </Marker>
-            );
-          }
-          return null;
-        })}
-      </MapView>
-      <TouchableOpacity style={styles.locateBtn} onPress={onLocateMe}>
-        <Ionicons name="navigate" size={24} color={Colors.dark} />
-      </TouchableOpacity>
+            if (!isNaN(latitude) && !isNaN(longitude)) {
+              return (
+                <Marker
+                  coordinate={{
+                    latitude,
+                    longitude,
+                  }}
+                  key={item.properties.id}
+                  onPress={() => onMarkerSelected(item)}
+                >
+                  <View style={styles.marker}>
+                    <Text style={styles.markerText}>
+                      € {item.properties.price}
+                    </Text>
+                  </View>
+                </Marker>
+              );
+            }
+            return null;
+          })}
+        </MapView>
+        <TouchableOpacity style={styles.locateBtn} onPress={onLocateMe}>
+          <Ionicons name="navigate" size={24} color={Colors.dark} />
+        </TouchableOpacity>
 
-      <ListingsBottomSheet listings={itemListing} category={category} />
-    </View>
+        <ListingsBottomSheet listings={itemListing} category={category} />
+      </View>
+    </GestureHandlerRootView>
   );
 });
 

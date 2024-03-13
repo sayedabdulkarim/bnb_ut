@@ -31,31 +31,31 @@ const ListingsBottomSheet = ({ listings, category }: Props) => {
   //   }, [bottomSheetRef?.current]);
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        enablePanDownToClose={false}
-        handleIndicatorStyle={{ backgroundColor: Colors.grey }}
-        style={styles.sheetContainer}
-      >
-        <View style={styles.contentContainer}>
-          <Listings listings={listings} refresh={refresh} category={category} />
-          <View style={styles.absoluteView}>
-            <TouchableOpacity onPress={onShowMap} style={styles.btn}>
-              <Text style={{ fontFamily: "mon-sb", color: "#fff" }}>Map</Text>
-              <Ionicons
-                name="map"
-                size={20}
-                style={{ marginLeft: 10 }}
-                color={"#fff"}
-              />
-            </TouchableOpacity>
-          </View>
+    // <GestureHandlerRootView style={{ flex: 1 }}>
+    <BottomSheet
+      ref={bottomSheetRef}
+      index={1}
+      snapPoints={snapPoints}
+      enablePanDownToClose={false}
+      handleIndicatorStyle={{ backgroundColor: Colors.grey }}
+      style={styles.sheetContainer}
+    >
+      <View style={styles.contentContainer}>
+        <Listings listings={listings} refresh={refresh} category={category} />
+        <View style={styles.absoluteView}>
+          <TouchableOpacity onPress={onShowMap} style={styles.btn}>
+            <Text style={{ fontFamily: "mon-sb", color: "#fff" }}>Map</Text>
+            <Ionicons
+              name="map"
+              size={20}
+              style={{ marginLeft: 10 }}
+              color={"#fff"}
+            />
+          </TouchableOpacity>
         </View>
-      </BottomSheet>
-    </GestureHandlerRootView>
+      </View>
+    </BottomSheet>
+    // </GestureHandlerRootView>
   );
 };
 
