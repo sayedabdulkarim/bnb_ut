@@ -12,16 +12,16 @@ import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
 import { useEffect, useRef, useState } from "react";
-// import {
-//   BottomSheetFlatList,
-//   BottomSheetFlatListMethods,
-// } from "@gorhom/bottom-sheet";
+import {
+  BottomSheetFlatList,
+  BottomSheetFlatListMethods,
+} from "@gorhom/bottom-sheet";
 import { ListingsProps } from "@/constants/models";
 
 const Listings = ({ listings: items, refresh, category }: ListingsProps) => {
   //misc
-  // const listRef = useRef<BottomSheetFlatListMethods>(null);
-  const listRef = useRef<FlatList>(null);
+  const listRef = useRef<BottomSheetFlatListMethods>(null);
+  // const listRef = useRef<FlatList>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   //func
@@ -95,8 +95,8 @@ const Listings = ({ listings: items, refresh, category }: ListingsProps) => {
   return (
     <View style={[defaultStyles.container]}>
       {/* <View style={{ borderWidth: 1, borderColor: "red" }}> */}
-      {/* <BottomSheetFlatList */}
-      <FlatList
+      <BottomSheetFlatList
+        // <FlatList
         renderItem={renderRow}
         data={loading ? [] : items}
         ref={listRef}
