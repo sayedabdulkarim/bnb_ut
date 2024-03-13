@@ -122,7 +122,7 @@ const Page = () => {
                           : styles.place
                       }
                     />
-                    <Text style={{ fontFamily: "mon", paddingTop: 6 }}>
+                    <Text style={{ fontFamily: "mon-r", paddingTop: 6 }}>
                       {item.title}
                     </Text>
                   </TouchableOpacity>
@@ -154,7 +154,7 @@ const Page = () => {
             <Animated.View style={styles.cardBody}>
               <DatePicker
                 options={{
-                  defaultFont: "mon",
+                  defaultFont: "mon-r",
                   headerFont: "mon-sb",
                   mainColor: Colors.primary,
                   borderColor: "transparent",
@@ -201,7 +201,7 @@ const Page = () => {
                     </Text>
                     <Text
                       style={{
-                        fontFamily: "mon",
+                        fontFamily: "mon-r",
                         fontSize: 14,
                         color: Colors.grey,
                       }}
@@ -239,7 +239,7 @@ const Page = () => {
                     </TouchableOpacity>
                     <Text
                       style={{
-                        fontFamily: "mon",
+                        fontFamily: "mon-r",
                         fontSize: 16,
                         minWidth: 18,
                         textAlign: "center",
