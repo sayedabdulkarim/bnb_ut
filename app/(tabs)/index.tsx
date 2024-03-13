@@ -31,8 +31,12 @@ const Page = () => {
         }}
       />
       {/* <Listings listings={items} refresh={0} category={category} /> */}
-      <ListingsMap listings={geoItems} />
-      <ListingsBottomSheet listings={items} category={category} />
+      <ListingsMap
+        listings={geoItems}
+        itemListing={items}
+        category={category}
+      />
+      {/* <ListingsBottomSheet listings={items} category={category} /> */}
     </View>
   );
 };

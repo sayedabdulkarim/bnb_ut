@@ -7,9 +7,12 @@ import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import * as Location from "expo-location";
+import ListingsBottomSheet from "./ListingBottomSheets";
 
 interface Props {
   listings: any;
+  itemListing: any;
+  category: string;
 }
 
 const INITIAL_REGION = {
@@ -19,7 +22,7 @@ const INITIAL_REGION = {
   longitudeDelta: 9,
 };
 
-const ListingsMap = memo(({ listings }: Props) => {
+const ListingsMap = memo(({ listings, itemListing, category }: Props) => {
   const router = useRouter();
   const mapRef = useRef<any>(null);
 
@@ -118,6 +121,8 @@ const ListingsMap = memo(({ listings }: Props) => {
       <TouchableOpacity style={styles.locateBtn} onPress={onLocateMe}>
         <Ionicons name="navigate" size={24} color={Colors.dark} />
       </TouchableOpacity>
+
+      <ListingsBottomSheet listings={itemListing} category={category} />
     </View>
   );
 });
@@ -125,6 +130,9 @@ const ListingsMap = memo(({ listings }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderWidth: 1,
+    // borderColor: "red",
+    // height: "100%",
   },
   marker: {
     padding: 8,
