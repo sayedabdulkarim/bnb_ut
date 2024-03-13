@@ -94,6 +94,7 @@ function RootLayoutNav() {
           title: "Booking",
           presentation: "transparentModal",
           animation: "fade",
+          headerTransparent: true,
           headerTitleStyle: {
             fontFamily: "mon-sb",
           },
