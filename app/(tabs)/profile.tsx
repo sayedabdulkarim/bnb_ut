@@ -74,7 +74,7 @@ const Profile = () => {
   return (
     <SafeAreaView
       style={{
-        // flex: 1,
+        flex: 1,
         backgroundColor: "#fff",
         paddingTop: 40,
       }}
@@ -137,11 +137,13 @@ const Profile = () => {
       )}
 
       {isAuthenticated && (
-        <Button
-          title="Log Out"
-          onPress={() => dispatch(logOutUser(null))}
-          color={Colors.dark}
-        />
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Log Out"
+            onPress={() => dispatch(logOutUser(null))}
+            color={"red"}
+          />
+        </View>
       )}
       {!isAuthenticated && (
         <Link href={"/(modals)/login"} asChild>
@@ -192,6 +194,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 8,
+  },
+  buttonContainer: {
+    width: "50%",
+    alignSelf: "center",
+    backgroundColor: "red",
   },
 });
 
