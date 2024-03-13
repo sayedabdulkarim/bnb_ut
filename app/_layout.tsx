@@ -103,7 +103,7 @@ function RootLayoutNav() {
           headerLeft: () => (
             <TouchableOpacity onPress={() => router.back()}>
               <Ionicons
-                name="close-outline"
+                name="close-circle-outline"
                 size={28}
                 color={"#000"}
                 style={{ fontWeight: "bold" }}
