@@ -72,7 +72,13 @@ const Profile = () => {
   }, [user]);
 
   return (
-    <SafeAreaView style={defaultStyles.container}>
+    <SafeAreaView
+      style={{
+        // flex: 1,
+        backgroundColor: "#fff",
+        paddingTop: 40,
+      }}
+    >
       <View style={styles.headerContainer}>
         <Text style={styles.header}>Profile</Text>
         <Ionicons name="notifications-outline" size={26} />
