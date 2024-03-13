@@ -6,11 +6,12 @@ import listingsData from "@/assets/data/listing.json";
 import listingsDataGeo from "@/assets/data/listingGeo.json";
 import ExploreHeader from "@/components/ExploreHeader";
 import Listings from "@/components/Listing";
+import ListingsMap from "@/components/ListingMap";
 
 const Page = () => {
   //dummy
   const items = useMemo(() => listingsData as any, []);
-  const getoItems = useMemo(() => listingsDataGeo, []);
+  const geoItems = useMemo(() => listingsDataGeo, []);
 
   //state
   const [category, setCategory] = useState<string>("Tiny homes");
@@ -28,7 +29,8 @@ const Page = () => {
           header: () => <ExploreHeader onCategoryChanged={onDataChanged} />,
         }}
       />
-      <Listings listings={items} refresh={0} category={category} />
+      {/* <Listings listings={items} refresh={0} category={category} /> */}
+      <ListingsMap listings={geoItems} />
       {/* <Link href={"/(modals)/login"}>Login</Link>
       <Link href={"/(modals)/booking"}>Booking</Link>
       <Link href={"/listing/13334"}>Listing</Link>
