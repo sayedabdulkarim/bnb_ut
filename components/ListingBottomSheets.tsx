@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
@@ -22,6 +22,13 @@ const ListingsBottomSheet = ({ listings, category }: Props) => {
     bottomSheetRef.current?.collapse();
     setRefresh(refresh + 1);
   };
+
+  //   useLayoutEffect(() => {
+  //     // Assuming '0' is the collapsed state for your BottomSheet
+  //     if (bottomSheetRef?.current) {
+  //       bottomSheetRef.current?.snapToIndex(0);
+  //     }
+  //   }, [bottomSheetRef?.current]);
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>

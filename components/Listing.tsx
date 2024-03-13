@@ -26,7 +26,7 @@ const Listings = ({ listings: items, refresh, category }: ListingsProps) => {
 
   //func
   const scrollListTop = () => {
-    // listRef.current?.scrollToOffset({ offset: 0, animated: true });
+    listRef.current?.scrollToOffset({ offset: 0, animated: true });
   };
 
   //asybc
